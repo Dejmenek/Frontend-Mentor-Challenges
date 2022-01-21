@@ -1,0 +1,12 @@
+{
+  "name": "sunnyside-agency-landing-page-main",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./src/style.scss ./dist/style.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

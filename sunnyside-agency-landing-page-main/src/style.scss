@@ -1,0 +1,264 @@
+@import 'https://fonts.googleapis.com/css2?family=Barlow:wght@600&family=Fraunces:wght@700;900&display=swap';
+
+
+/* ===============
+      VARIABLES 
+   =============== */
+
+    // BACKGROUND COLORS
+    $soft-red: hsl(7, 99%, 70%);
+    $yellow: hsl(51, 100%, 49%);
+    $dark-desaturated-cyan: hsl(167, 40%, 24%);
+    $dark-blue: hsl(198, 62%, 26%);
+    $dark-moderate-cyan: hsl(168, 34%, 41%);
+
+    // TEXT COLORS
+    $very-dark-blue: hsl(212, 27%, 19%);
+    $very-dark-grayish-blue: hsl(213, 9%, 39%);
+    $dark-grayish-blue: hsl(232, 10%, 55%);
+    $grayish-blue: hsl(210, 4%, 67%);
+    $white: hsl(0, 0%, 100%);
+
+
+    // TYPPGRAPHY
+    $barlow: "Barlow", sans-serif;
+    $fraunces: "Fraunces", serif;
+
+    $semi-bold: 600;
+    $bold: 700;
+    $black: 900;
+
+    $font-size-base: 18px;
+
+
+/* ===================================== */
+
+
+/* ===============
+   GLOBAL SETTINGS 
+   =============== */
+
+   *, *::before, *::after{
+       box-sizing: border-box;
+   }
+
+   body {
+       margin: 0;
+       font-family: $barlow;
+       font-weight: $semi-bold;
+       font-size: $font-size-base;
+   }
+/* ===================================== */
+
+
+/* ===============
+   GENERAL STYLES 
+   =============== */
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+picture {
+    line-height: 0;
+}
+
+ul {
+    padding: 0;
+    list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: $fraunces;
+}
+
+/* ===================================== */
+
+
+/* ===============
+   UTILITY CLASSES 
+   =============== */
+.container {
+    position: relative;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.letter-spacing-lg {
+    letter-spacing: 0.3rem;
+}
+
+
+/* ===================================== */
+
+/* ====================
+   HEADER AND MAIN NAV 
+   ==================== */
+.header {
+    text-align: center;
+    padding: 2rem 0 30rem 1rem;
+    background-image: url(/sunnyside-agency-landing-page-main/images/mobile/image-header.jpg);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    &__nav {
+        display: none;
+    }
+
+    &__title {
+        text-transform: uppercase;
+        color: $white;
+        padding-top: 2em;
+        font-size: 2rem;
+    }
+    
+}
+
+/* ===================================== */
+
+
+/* ===============
+         MAIN 
+   =============== */
+.feature-card {
+    text-align: center;
+
+    &__content {
+        padding: 3em 1em;
+    }
+
+    &__heading {
+        color: $very-dark-blue;
+        font-weight: $black;
+    }
+
+    &__text {
+        color: $dark-grayish-blue;
+    }
+
+    &__link {
+        color: $very-dark-blue;
+        font-weight: $black;
+        text-transform: uppercase;
+        font-family: $fraunces;
+    }
+}
+
+.service-card {
+    text-align: center;
+    padding: 400px 30px 50px;
+
+    &--design {
+        background-image: url(../images/mobile/image-graphic-design.jpg);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: $dark-desaturated-cyan;
+    }
+
+    &--photography {
+        background-image: url(../images/mobile/image-photography.jpg);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: $dark-blue;
+    }
+}
+
+.testimonial {
+    text-align: center;
+    padding: 2em 1em;
+    &__title {
+        font-weight: $semi-bold;
+        text-transform: uppercase;
+        letter-spacing: 0.3rem;
+        color: $grayish-blue;
+        padding-bottom: 2em;
+    }
+}
+
+.client-card {
+    padding: 1em 0;
+
+    &__name {
+        color: $very-dark-blue;
+        font-weight: $black;
+    }
+
+    &__occupation {
+        color: $grayish-blue;
+    }
+
+    &__text {
+        color: $very-dark-grayish-blue;
+    }
+
+    &__img {
+        border-radius: 50%;
+        width: 70px;
+    }
+}
+
+/* ===================================== */
+
+
+/* ==============
+       FOOTER 
+   ============== */
+.footer {
+    text-align: center;
+    background-color: $dark-moderate-cyan;
+
+    &__img {
+        padding: 2em 0em;
+        filter: brightness(0) saturate(100%) invert(27%) sepia(33%) saturate(687%) hue-rotate(116deg) brightness(91%) contrast(87%);
+    }
+
+    &__list {
+        display: flex;
+        gap: 3em;
+        justify-content: center;
+    }
+
+    &__link {
+        color: $dark-desaturated-cyan;
+    }
+
+    &__icons {
+        display: flex;
+        justify-content: center;
+        gap: 2em;
+        padding: 3em;
+        filter: brightness(0.6);
+    }
+
+    &__attribution { 
+        font-size: 11px; text-align: center;
+        a {
+            color: hsl(228, 45%, 44%);
+        }
+    }
+
+}
+
+/* ===================================== */
