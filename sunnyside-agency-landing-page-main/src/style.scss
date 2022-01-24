@@ -94,7 +94,11 @@ h4 {
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
+
+    @media( min-width: 700px ) {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
 
 .flex {
@@ -115,14 +119,46 @@ h4 {
    ==================== */
 .header {
     text-align: center;
-    padding: 2rem 0 30rem 1rem;
-    background-image: url(/sunnyside-agency-landing-page-main/images/mobile/image-header.jpg);
+    padding: 2rem 0 20rem 1rem;
+    background-image: url(../images/mobile/image-header.jpg);
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
 
+    @media ( min-width: 700px ) {
+        background-image: url(../images/desktop/image-header.jpg);
+    }
+
     &__nav {
         display: none;
+        @media ( min-width: 700px ) {
+            position: relative;
+            display: block;
+        }
+    }
+
+    &__list {
+        display: flex;
+        gap: 2em;
+    }
+
+    &__link {
+        color: $white;
+        
+        &--btn {
+            padding: 1em 1.5em;
+            border-radius: 10em;
+            background-color: $white;
+            color: $very-dark-blue;
+            font-family: $fraunces;
+            text-transform: uppercase;
+
+            &:hover {
+                background-color: rgba($white,0.5);
+                color: $white;
+                transition: all 500ms ease;
+            }
+        }
     }
 
     &__title {
@@ -131,7 +167,29 @@ h4 {
         padding-top: 2em;
         font-size: 2rem;
     }
+
+    &__menu {
+        @media ( min-width: 700px ) {
+            display: none;
+        }
+    }
     
+}
+
+.arrow {
+    animation-name: down;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes down {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(100px);
+    }
 }
 
 /* ===================================== */
@@ -141,26 +199,90 @@ h4 {
          MAIN 
    =============== */
 .feature-card {
-    text-align: center;
+
+    @media ( min-width: 700px ) {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+    }
 
     &__content {
-        padding: 3em 1em;
+        text-align: center;
+        padding: 5em 1em;
+        @media ( min-width: 700px ) {
+            text-align: left;
+            place-self: center;
+        }
     }
 
     &__heading {
         color: $very-dark-blue;
         font-weight: $black;
+        font-size: 2.5rem;
+    }
+
+    &__img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
     }
 
     &__text {
         color: $dark-grayish-blue;
+        padding-bottom: 2em;
+        line-height: 25px;
+
+        @media ( min-width: 700px ) {
+            max-width: 460px;
+        }
     }
 
     &__link {
+        position: relative;
         color: $very-dark-blue;
         font-weight: $black;
         text-transform: uppercase;
         font-family: $fraunces;
+
+        &::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            opacity: 0.5;
+            border-radius: 10em;
+            z-index: -1;
+            transition: opacity 500ms ease;
+        }
+
+        &:hover::before {
+            opacity: 1;
+        }
+
+        &--red::before {
+            background-color: $soft-red;
+        }
+
+        &--yellow::before {
+            background-color: $yellow;
+        }
+    }
+    
+    &:first-child {
+        .feature-card {
+            &__content {
+                order: -1;
+            }
+        }
+    }
+
+}
+
+.service-card-container {
+    @media ( min-width: 700px ) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -188,6 +310,11 @@ h4 {
 .testimonial {
     text-align: center;
     padding: 2em 1em;
+
+    @media ( min-width: 700px ) {
+        padding-top: 5em;
+    }
+
     &__title {
         font-weight: $semi-bold;
         text-transform: uppercase;
@@ -197,10 +324,21 @@ h4 {
     }
 }
 
+.testimonial-container {
+    width: 80%;
+    margin: 0 auto;
+    @media ( min-width: 700px ) {
+        display: flex;
+        gap: 2em;
+    }
+}
+
 .client-card {
-    padding: 1em 0;
+    padding: 2em 0;
+    line-height: 30px;
 
     &__name {
+        padding-top: 1em;
         color: $very-dark-blue;
         font-weight: $black;
     }
@@ -242,6 +380,11 @@ h4 {
 
     &__link {
         color: $dark-desaturated-cyan;
+
+        &:hover {
+            color: $white;
+            transition: color 1s ease;
+        }
     }
 
     &__icons {
@@ -249,13 +392,19 @@ h4 {
         justify-content: center;
         gap: 2em;
         padding: 3em;
-        filter: brightness(0.6);
+    }
+
+    &__icon {
+        &:hover {
+            filter: brightness(0) invert(1);
+            transition: filter 500ms ease;
+        }
     }
 
     &__attribution { 
-        font-size: 11px; text-align: center;
+        font-size: 1rem; text-align: center;
         a {
-            color: hsl(228, 45%, 44%);
+            color: $white;
         }
     }
 

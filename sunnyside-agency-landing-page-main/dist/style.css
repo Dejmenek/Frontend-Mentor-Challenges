@@ -60,6 +60,11 @@ h4 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 }
+@media (min-width: 700px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
 
 .flex {
   display: flex;
@@ -77,14 +82,45 @@ h4 {
    ==================== */
 .header {
   text-align: center;
-  padding: 2rem 0 30rem 1rem;
-  background-image: url(/sunnyside-agency-landing-page-main/images/mobile/image-header.jpg);
+  padding: 2rem 0 20rem 1rem;
+  background-image: url(../images/mobile/image-header.jpg);
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
 }
+@media (min-width: 700px) {
+  .header {
+    background-image: url(../images/desktop/image-header.jpg);
+  }
+}
 .header__nav {
   display: none;
+}
+@media (min-width: 700px) {
+  .header__nav {
+    position: relative;
+    display: block;
+  }
+}
+.header__list {
+  display: flex;
+  gap: 2em;
+}
+.header__link {
+  color: white;
+}
+.header__link--btn {
+  padding: 1em 1.5em;
+  border-radius: 10em;
+  background-color: white;
+  color: #23303e;
+  font-family: "Fraunces", serif;
+  text-transform: uppercase;
+}
+.header__link--btn:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: white;
+  transition: all 500ms ease;
 }
 .header__title {
   text-transform: uppercase;
@@ -92,29 +128,104 @@ h4 {
   padding-top: 2em;
   font-size: 2rem;
 }
+@media (min-width: 700px) {
+  .header__menu {
+    display: none;
+  }
+}
 
+.arrow {
+  animation-name: down;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes down {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100px);
+  }
+}
 /* ===================================== */
 /* ===============
          MAIN 
    =============== */
-.feature-card {
-  text-align: center;
+@media (min-width: 700px) {
+  .feature-card {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 .feature-card__content {
-  padding: 3em 1em;
+  text-align: center;
+  padding: 5em 1em;
+}
+@media (min-width: 700px) {
+  .feature-card__content {
+    text-align: left;
+    place-self: center;
+  }
 }
 .feature-card__heading {
   color: #23303e;
   font-weight: 900;
+  font-size: 2.5rem;
+}
+.feature-card__img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 .feature-card__text {
   color: #818498;
+  padding-bottom: 2em;
+  line-height: 25px;
+}
+@media (min-width: 700px) {
+  .feature-card__text {
+    max-width: 460px;
+  }
 }
 .feature-card__link {
+  position: relative;
   color: #23303e;
   font-weight: 900;
   text-transform: uppercase;
   font-family: "Fraunces", serif;
+}
+.feature-card__link::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  opacity: 0.5;
+  border-radius: 10em;
+  z-index: -1;
+  transition: opacity 500ms ease;
+}
+.feature-card__link:hover::before {
+  opacity: 1;
+}
+.feature-card__link--red::before {
+  background-color: #fe7867;
+}
+.feature-card__link--yellow::before {
+  background-color: #fad400;
+}
+.feature-card:first-child .feature-card__content {
+  order: -1;
+}
+
+@media (min-width: 700px) {
+  .service-card-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .service-card {
@@ -140,6 +251,11 @@ h4 {
   text-align: center;
   padding: 2em 1em;
 }
+@media (min-width: 700px) {
+  .testimonial {
+    padding-top: 5em;
+  }
+}
 .testimonial__title {
   font-weight: 600;
   text-transform: uppercase;
@@ -148,10 +264,23 @@ h4 {
   padding-bottom: 2em;
 }
 
+.testimonial-container {
+  width: 80%;
+  margin: 0 auto;
+}
+@media (min-width: 700px) {
+  .testimonial-container {
+    display: flex;
+    gap: 2em;
+  }
+}
+
 .client-card {
-  padding: 1em 0;
+  padding: 2em 0;
+  line-height: 30px;
 }
 .client-card__name {
+  padding-top: 1em;
   color: #23303e;
   font-weight: 900;
 }
@@ -186,19 +315,26 @@ h4 {
 .footer__link {
   color: #25564b;
 }
+.footer__link:hover {
+  color: white;
+  transition: color 1s ease;
+}
 .footer__icons {
   display: flex;
   justify-content: center;
   gap: 2em;
   padding: 3em;
-  filter: brightness(0.6);
+}
+.footer__icon:hover {
+  filter: brightness(0) invert(1);
+  transition: filter 500ms ease;
 }
 .footer__attribution {
-  font-size: 11px;
+  font-size: 1rem;
   text-align: center;
 }
 .footer__attribution a {
-  color: #3e52a3;
+  color: white;
 }
 
 /* ===================================== */
