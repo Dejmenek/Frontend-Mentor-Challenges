@@ -156,9 +156,14 @@ h4 {
   }
 }
 .header__link--btn:hover {
-  background-color: rgba(255, 255, 255, 0.5);
-  color: white;
+  background-color: rgba(250, 212, 0, 0.5);
   transition: all 500ms ease;
+}
+@media (min-width: 700px) {
+  .header__link--btn:hover {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.5);
+  }
 }
 .header__title {
   text-transform: uppercase;

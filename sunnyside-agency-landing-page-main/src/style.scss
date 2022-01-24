@@ -191,9 +191,13 @@ h4 {
             }
 
             &:hover {
-                background-color: rgba($white,0.5);
-                color: $white;
+                background-color: rgba($yellow,0.5);
                 transition: all 500ms ease;
+
+                @media ( min-width: 700px ) {
+                    color: $white;
+                    background-color: rgba($white,0.5);
+                }
             }
         }
     }
