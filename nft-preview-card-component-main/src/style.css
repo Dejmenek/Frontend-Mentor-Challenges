@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+
+:root {
+    --soft-blue: hsl(215, 51%, 70%);
+    --cyan: hsl(178, 100%, 50%);
+    --cyan-light: hsla(178,100%,50%,.5);
+
+    --primary-bg-clr: hsl(217, 54%, 11%);
+    --secondary-bg-clr: hsl(216, 50%, 16%);
+    
+    --line-clr: hsl(215, 32%, 27%);
+    --font-clr: hsl(0, 0%, 100%);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+li,
+figure,
+figcaption {
+    margin: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Outfit', sans-serif;
+    min-height: 100vh;
+    line-height: 1.5;
+    background-color: var(--primary-bg-clr);
+}
+
+img,
+picture {
+    max-width: 100%;
+    display: block;
+    align-self: center;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+hr {
+    margin: 1em 0;
+    border: 0;
+    border-top: 1px solid var(--line-clr);
+}
+
+input,
+button {
+    font: inherit;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    gap: 6.25em;
+}
+
+.gap {
+    gap: 1em;
+}
+
+.emphasize {
+    color: var(--font-clr);
+}
+
+.component {
+    width: 350px;
+    height: 550px;
+    margin: 0 auto;
+    color: var(--soft-blue);
+    border-radius: .5em;
+    background-color: var(--secondary-bg-clr);
+    padding: 2em;
+}
+
+.component__heading {
+    margin: .5em 0;
+    color: var(--font-clr);
+}
+
+.cyan {
+    transition: all .25s ease;
+}
+
+.cyan:hover,
+.cyan:active,
+.component__price,
+.attribution a {
+    color: var(--cyan);
+}
+
+.component__description {
+    margin-bottom: 1em;
+    color: var(--soft-blue);
+}
+
+.container {
+    position: relative;
+    border-radius: 1em;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.container::before {
+    content: url(../images/icon-view.svg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background: var(--cyan-light);
+    opacity: 0;
+    inset: 0;
+    transition: all .25s ease;
+}
+
+.container:hover::before {
+    opacity: 1;
+}
+
+.component__price,
+.component__time {
+    margin-left: .25em;
+}
+
+.component__avatar {
+    width: 30px;
+    height: 30px;
+    border: 2px solid var(--font-clr);
+    border-radius: 50%;
+}
+
+.informations__item {
+    display: flex;
+}
+
+.attribution { 
+    margin-top: 2em;
+    font-size: 11px; text-align: center; 
+    color: var(--font-clr);
+}
